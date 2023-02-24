@@ -1,4 +1,4 @@
-package ie.setu.comicbookapp
+package ie.setu.comicbookapp.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Comicbookapp"
         tools:targetApi="31">
         <activity
-            android:name=".ComicbookActivity"
+            android:name=".activities.ComicbookActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
