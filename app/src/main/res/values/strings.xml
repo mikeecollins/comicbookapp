@@ -2,4 +2,5 @@
     <string name="app_name">comicbookapp</string>
     <string name="button_addComicbook">Add Comicbook</string>
     <string name="hint_comicbookTitle">Comicbook Title</string>
+    <string name="hint_comicbookDescription">Description </string>
 </resources>
