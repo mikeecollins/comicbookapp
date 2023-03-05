@@ -6,8 +6,5 @@
     <string name="menu_addComicbook">Add</string>
     <string name="save_comicbook"> Save Comicbook </string>
     <string name="enter_comicbook_title"> Please enter a Comic Title </string>
-
-
-
-
+    <string name="menu_cancelComicbook">Cancel</string>
 </resources>
