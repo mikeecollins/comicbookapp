@@ -3,4 +3,8 @@
     <string name="button_addComicbook">Add Comicbook</string>
     <string name="hint_comicbookTitle">Comicbook Title</string>
     <string name="hint_comicbookDescription">Description </string>
+    <string name="menu_addComicbook">Add</string>
+    <string name="menu_cancelComicbook">Cancel</string>
+
+
 </resources>
