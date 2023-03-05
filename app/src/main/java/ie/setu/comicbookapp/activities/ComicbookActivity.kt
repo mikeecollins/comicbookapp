@@ -20,6 +20,9 @@ class ComicbookActivity : AppCompatActivity() {
     val comicbooks = ArrayList<ComicbookModel>()
     lateinit var app: MainApp
 
+    var edit = false
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +35,15 @@ class ComicbookActivity : AppCompatActivity() {
 
         //val deleteButton = findViewById<ComicbookModel>(R.id.deleteButton)
         //deleteButton.setOnClickListener {
-            // My delete function
+        // My delete function
 
-
+        if (intent.hasExtra("Comicbook update")) {
+            edit = true
+            comicbook = intent.extras?.getParcelable("placemark_edit")!!
+            binding.comicbookTitle.setText(comicbook.title)
+            binding.description.setText(comicbook.description)
+            binding.btnAdd.setText(R.string.save_comicbook)
+        }
         if (intent.hasExtra("comicbook_edit")) {
             comicbook = intent.extras?.getParcelable("comicbook_edit")!!
             binding.comicbookTitle.setText(comicbook.title)
@@ -46,17 +55,17 @@ class ComicbookActivity : AppCompatActivity() {
             comicbook.title = binding.comicbookTitle.text.toString()
             comicbook.description = binding.description.text.toString()
             if (comicbook.title.isNotEmpty()) {
-                comicbooks.add(comicbook)
-                app.comicbooks.create(comicbook.copy())
-                i("add Button Pressed: ${comicbook}")
-                setResult(RESULT_OK)
-                finish()
-            }
-            else {
-                Snackbar
-                    .make(it,"Please Enter a title", Snackbar.LENGTH_LONG)
+                Snackbar.make(it, R.string.enter_comicbook_title, Snackbar.LENGTH_LONG)
                     .show()
+            } else {
+                if (edit) {
+                    app.comicbooks.update(comicbook.copy())
+                } else {
+                    app.comicbooks.create(comicbook.copy())
+                }
             }
+            setResult(RESULT_OK)
+            finish()
         }
     }
 
